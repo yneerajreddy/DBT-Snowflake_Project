@@ -1,0 +1,30 @@
+models:
+  - name: fct_sales
+    description: "Fact table containing all sales transactions"
+    columns:
+      - name: transaction_id
+        description: "Unique identifier for each transaction"
+        tests:
+          - unique
+          - not_null
+      - name: total_amount
+        description: "Total amount of the transaction"
+        tests:
+          - not_null
+      - name: profit
+        description: "Profit from the transaction"
+        tests:
+          - not_null
+
+  - name: dim_customers
+    description: "Customer dimension with calculated metrics"
+    columns:
+      - name: customer_id
+        description: "Unique customer identifier"
+        tests:
+          - unique
+          - not_null
+      - name: total_revenue
+        description: "Total revenue from customer"
+        tests:
+          - not_null

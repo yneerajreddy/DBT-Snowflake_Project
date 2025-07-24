@@ -1,0 +1,43 @@
+sources:
+  - name: raw_data
+    description: Raw data from various source systems
+    schema: raw_data
+    tables:
+      - name: raw_sales_transactions
+        description: Sales transaction data
+        columns:
+          - name: transaction_id
+            description: Unique transaction identifier
+            tests:
+              - unique
+              - not_null
+          - name: customer_id
+            tests:
+              - not_null
+          - name: transaction_date
+            tests:
+              - not_null
+
+      - name: raw_customers
+        description: Customer master data
+        columns:
+          - name: customer_id
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_products
+        description: Product catalog
+        columns:
+          - name: product_id
+            tests:
+              - unique
+              - not_null
+
+      - name: raw_reviews
+        description: Product reviews
+        columns:
+          - name: review_id
+            tests:
+              - unique
+              - not_null
